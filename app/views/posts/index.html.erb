@@ -1,0 +1,15 @@
+<h1>Peter's Journal Posts - All</h1>
+<dl>
+<% @posts.each do |post| %>
+   <dt><%= post.title %> by <%= post.name %></dt>
+   <dd><%= post.content %>
+       <div class="postcontrols">
+          <%= link_to 'Show', post %> |     
+          <%= link_to 'Edit', edit_post_path(post) %> |     
+          <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>  
+       </div>
+   </dd>
+<% end %>
+</dl>
+
+<%= link_to 'New Post', new_post_path %>
